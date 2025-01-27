@@ -142,6 +142,63 @@
             background-color: #ebdcc4;
             color: #181818
         }
+
+        /* Contact Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 500px;
+        margin: 20px auto;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    form div {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form label {
+        font-size: 16px;
+        margin-bottom: 5px;         
+        display: block;
+        color: #181818;
+    }
+
+    form input,
+    form textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form input:focus,
+    form textarea:focus {
+        border-color: #181818;
+        outline: none;
+    }
+
+    form button {
+        padding: 12px 25px;
+        background-color: #181818;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+        background-color: #ebdcc4;
+        color: #181818;
+    }
+
         
     </style>
 </head>
@@ -208,11 +265,28 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p></p>
-    </section>
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact</h2>
+    
+    <!-- Contact Form -->
+    <form action="submit_form.php" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Your email">
+        </div>
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Your message"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
 
 </body>
 </html>
