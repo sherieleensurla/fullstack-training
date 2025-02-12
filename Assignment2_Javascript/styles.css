@@ -1,0 +1,317 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ca8798, #fff3fc);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: #009688;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+    tr:hover {background-color: #9cfcf2;}
+
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #009688;
+    text-align: center;
+    color: #fff;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #0d69ca;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #303030;
+}
+
+.task-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#taskTitle {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 40%; 
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+
+}
+
+#taskDescription {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+
+}
+
+/* Due Date Input */
+#taskDueDate {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 25%;  
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    color: #6d6c6c; 
+}
+
+/* .task-form select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(25% - 12px); 
+} */
+
+/* Add Task Button */
+#addTaskBtn {
+    padding: 4px 40px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%; 
+    margin-top: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#addTaskBtn:hover {
+    background-color: #00346b;
+}
+
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+#taskList {
+    list-style-type: none;
+}
+
+#taskList li {
+    background-color: #fafafa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.complete-btn {
+    background-color: #188832;
+}
+
+.delete-btn {
+    background-color: #d63545;
+}
+
+/* Modal Styles */
+/* General Modal Styles (for all modals) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/* Edit Task Modal Styles */
+#editTaskModal {
+    display: none;  
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1000; 
+    width: 500px;
+    min-height: 350px; 
+    background-color: #fff;
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#editTaskModal .modal-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center; 
+}
+
+/* Center the modal content */
+#editTaskModal .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px;
+    width: 100%; 
+    min-height: 150px;
+    margin: 0; 
+    border-radius: 4px;
+}
+
+#editTaskModal label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #333;
+    width: 100%;
+    text-align: left; 
+}
+
+/* Form Inputs and buttons inside the modal */
+#editTaskModal #editTaskTitle, #editTaskDescription, #editTaskDueDate {
+    padding: 10px 20px;
+    margin: 0 20px 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 95%;  
+    box-sizing: border-box;
+}
+
+/* Modal buttons */
+#editTaskModal .modal-content button {
+    width: 48%;
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Save button specific styles */
+#editTaskModal #saveEditBtn {
+    background-color: #28a745;
+}
+
+/* Save button hover effect */
+#editTaskModal #saveEditBtn:hover {
+    background-color: #035015;
+}
+
+#editTaskModal .form-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;  
+}
+
+/* Label & Input together */
+#editTaskModal .form-row input,
+#editTaskModal .form-row label {
+    width: 100%;  
+}
+/* Confirmation Modal Styles */
+#confirmationModal .modal-content {
+    background-color: #fff;
+    margin: 100px auto; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Confirmation buttons styles */
+#confirmationModal #confirmDelete {
+    background-color: #dc3545; 
+}
+
+#confirmationModal #confirmDelete:hover {
+    background-color: #a30414;
+}
+
+#confirmationModal #cancelDelete, #editTaskModal #cancelEditBtn {
+    background-color: #727070; 
+}
+
+#confirmationModal #cancelDelete:hover {
+    background-color: #303030;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    #editTaskModal .modal-content {
+        width: 90%; 
+    }
+
+    #editTaskModal #editTaskTitle,
+    #editTaskModal #editTaskDescription,
+    #editTaskModal #editTaskDueDate {
+        width: 90%;  
+    }
+}
+
