@@ -1,0 +1,12 @@
+.character-card {
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
+
+.container {
+  margin-top: 20px;
+}
